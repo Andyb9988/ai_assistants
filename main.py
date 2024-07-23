@@ -1,7 +1,7 @@
 import openai
-from dotenv import load_dotenv
 import logging
 import time
+import os
 
 # Configure logging
 logging.basicConfig(
@@ -9,9 +9,8 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
 )
-load_dotenv()
 
-api_key = "Insert Here"
+api_key = os.getenv("OPENAI_ASSISTANT_API_KEY")
 
 client = openai.OpenAI(api_key=api_key)
 model = "gpt-3.5-turbo-16k"
